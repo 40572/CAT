@@ -1,0 +1,1 @@
+This directory contains files that contain helper functions for CRIStine.
