@@ -70,5 +70,24 @@ def save_conv(conv):
 
     components.html(js, height=30)
 
+def folder_sel():
+    js = """
+        <button type="button" id="picker">Select Folder</button>
+    <script>
+        async function openDirectoryPicker() {
+            try {
+                const directoryHandle = await window.showDirectoryPicker();
+                // Do something with the selected directory
+                console.log(directoryHandle); 
+            } catch (error) {
+                // Handle any errors that occur
+                console.error('Error opening directory:', error);
+            }
+            }"""
+    components.html(js, height=30)
 
+def count_files(path):
+    return len([f for f in os.listdir(path) if os.path.isfile(os.path.join(path, f))])
+
+    
 

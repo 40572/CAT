@@ -203,7 +203,7 @@ def create_search_index(index_name):
     return result.name
 
 
-def ret_documents_azure(k, user_query, search_index_name, search_mode='simple'):
+def ret_documents_azure(k, user_query, search_index_name,search_mode='simple'):
     
     search_client = SearchClient(endpoint=azure_search_endpoint, index_name=search_index_name, credential=azure_search_credential)
     if search_mode == 'vector':
@@ -222,7 +222,7 @@ def ret_documents_azure(k, user_query, search_index_name, search_mode='simple'):
             search_mode='any',
             select=["title", "content", "category", "file_name"],
             include_total_count=True,
-            top=k
+            #top=k
         )  
     
     return results

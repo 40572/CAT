@@ -184,8 +184,8 @@ if st.button("Start Services Extraction"):
         
         prog_bar.progress(docs_processed, text=progress_text)
         if result['category'] == 'text':
-            response = AIFunctions.get_response_for_doc_text(process_task,  system_def , result['content'] + "\\n",st.session_state.temperature,  st.session_state.max_response_length)
             content = ''.join(map(str, response))
+            response = AIFunctions.get_response_for_doc_text(process_task,  system_def , result['content'] + "\\n",st.session_state.temperature,  st.session_state.max_response_length)
             content_vector =  AIFunctions.embed_text(content)
             #copying the extracted requirements to our target requirements search index for future use
             target_doc = {'id': str(uuid.uuid1()), 'content': content, 'contentVector':content_vector}
